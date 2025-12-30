@@ -8,6 +8,7 @@ import { CompatibilityResult } from './components/CompatibilityResult';
 import { DetailedInsight } from './components/DetailedInsight';
 import { NextSteps } from './components/NextSteps';
 import { AssessmentProvider, useAssessment } from '../context';
+import { PDFReport } from './components/Downloadreport';
 
 export type Screen = 
   | 'welcome'
@@ -65,6 +66,11 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-green-50">
+      {/* Hidden PDF layout – required */}
+<div style={{ position: "absolute", left: "-9999px", top: 0 }}>
+  <PDFReport />
+</div>
+
       {currentScreen === 'welcome' && (
         <WelcomeScreen onStart={goToDomainSelection} />
       )}

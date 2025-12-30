@@ -1,5 +1,6 @@
 import { TrendingUp, Award, Target, ArrowRight, Download } from 'lucide-react';
 import type { Career } from '../../data';
+import { downloadReportPDF } from '../../services/downloadReportPDF';
 
 interface CompatibilityResultProps {
   score: number;
@@ -160,12 +161,12 @@ export function CompatibilityResult({ score, career, onViewInsights, onExploreOt
           <div className="flex flex-col sm:flex-row gap-4">
             <button 
               onClick={onViewInsights}
-              className="flex-1 bg-green-600 text-white px-6 py-4 rounded-full hover:bg-green-700 transition-colors flex items-center justify-center gap-2 group"
+              className="flex-1 bg-green-600 cursor-pointer text-white px-6 py-4 rounded-full hover:bg-green-700 transition-colors flex items-center justify-center gap-2 group"
             >
               View Detailed Insights
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="flex-1 border-2 border-slate-300 text-slate-700 px-6 py-4 rounded-full hover:border-slate-400 transition-colors flex items-center justify-center gap-2">
+            <button onClick={()=>{ downloadReportPDF()}} className="cursor-pointer flex-1 border-2 border-slate-300 text-slate-700 px-6 py-4 rounded-full hover:border-slate-400 transition-colors flex items-center justify-center gap-2">
               <Download className="w-5 h-5" />
               Download Report
             </button>

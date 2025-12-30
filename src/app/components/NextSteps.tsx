@@ -1,5 +1,6 @@
 import { BookOpen, Users, Target, Download, House, Search } from 'lucide-react';
 import type { Career } from '../../data';
+import { downloadReportPDF } from '../../services/downloadReportPDF';
 
 interface NextStepsProps {
   career: Career;
@@ -201,7 +202,7 @@ export function NextSteps({ career, score, onExploreOther, onStartOver }: NextSt
                 Get a PDF with your assessment results, trait analysis, and action plan
               </p>
             </div>
-            <button className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-green-50 transition-colors flex items-center gap-2 whitespace-nowrap">
+            <button onClick={()=> downloadReportPDF()}  className="bg-white text-green-600 px-8 py-4 rounded-full hover:bg-green-50 transition-colors flex items-center gap-2 whitespace-nowrap">
               <Download className="w-5 h-5" />
               Download PDF
             </button>
